@@ -1,3 +1,4 @@
+
 """Read the real gprMax Step 1 output and make honest, reproducible plots.
 
 The apex picker is intentionally simple. It first picks the repeatable early
@@ -8,6 +9,7 @@ sanity check, not a general detector or a preprocessing pipeline.
 """
 
 from pathlib import Path
+import argparse
 import json
 
 import h5py
@@ -32,7 +34,7 @@ FIGURES = ROOT / "results" / "figures"
 SUMMARY_FILE = ROOT / "results" / "step1_summary.json"
 
 
-def main() -> None:
+def main(gate_half_width_ns: float = 0.45) -> None:
     FIGURES.mkdir(parents=True, exist_ok=True)
     with h5py.File(INPUT_FILE, "r") as h5:
         # gprMax's merger stores a B-scan as (time samples, trace positions).
@@ -61,8 +63,9 @@ def main() -> None:
     # trace) from being selected as a pipe echo.
     expected_travel_time_s = 2 * TRUE_TOP_DEPTH_M / SOIL_VELOCITY
     residual = ez - ez.mean(axis=1, keepdims=True)
-    gate = (times_s >= time_zero_s + expected_travel_time_s - 0.45e-9) & (
-        times_s <= time_zero_s + expected_travel_time_s + 0.45e-9
+    gate_half_width_s = gate_half_width_ns * 1e-9
+    gate = (times_s >= time_zero_s + expected_travel_time_s - gate_half_width_s) & (
+        times_s <= time_zero_s + expected_travel_time_s + gate_half_width_s
     )
     gated = np.abs(residual[gate, apex_trace])
     apex_time_index = int(np.flatnonzero(gate)[np.argmax(gated)])
@@ -108,6 +111,7 @@ def main() -> None:
         "pipe_propagation_time_s": float(propagation_time_s),
         "estimated_top_depth_m": float(estimated_depth_m),
         "estimated_minus_true_m": float(difference_m),
+        "apex_gate_half_width_ns": gate_half_width_ns,
     }
     SUMMARY_FILE.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     for key, value in summary.items():
@@ -115,4 +119,12 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--gate-half-width-ns",
+        type=float,
+        default=0.45,
+        help="Half-width of the physically informed pipe-pick gate in ns.",
+    )
+    args = parser.parse_args()
+    main(args.gate_half_width_ns)

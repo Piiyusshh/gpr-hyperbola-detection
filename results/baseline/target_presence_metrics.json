@@ -1,0 +1,130 @@
+{
+  "task": "binary target presence: target_type != none",
+  "features": "32 time-bin mean absolute amplitudes, 1 max time-bin amplitude, 16 trace-bin mean absolute amplitudes, and 4 summary features",
+  "preprocessing": "per-B-scan trace-mean background removal and per-B-scan 99.5th-percentile absolute normalization",
+  "split_counts": {
+    "train": 140,
+    "val": 30,
+    "test": 30
+  },
+  "class_counts": {
+    "0": 70,
+    "1": 130
+  },
+  "validation": {
+    "confusion_matrix": [
+      [
+        9,
+        1
+      ],
+      [
+        1,
+        19
+      ]
+    ],
+    "accuracy": 0.9333333333333333,
+    "macro_f1": 0.925,
+    "per_class": {
+      "0": {
+        "precision": 0.9,
+        "recall": 0.9,
+        "f1": 0.9,
+        "support": 10
+      },
+      "1": {
+        "precision": 0.95,
+        "recall": 0.95,
+        "f1": 0.9500000000000001,
+        "support": 20
+      }
+    }
+  },
+  "test": {
+    "confusion_matrix": [
+      [
+        8,
+        3
+      ],
+      [
+        0,
+        19
+      ]
+    ],
+    "accuracy": 0.9,
+    "macro_f1": 0.8844672657252888,
+    "per_class": {
+      "0": {
+        "precision": 1.0,
+        "recall": 0.7272727272727273,
+        "f1": 0.8421052631578948,
+        "support": 11
+      },
+      "1": {
+        "precision": 0.8636363636363636,
+        "recall": 1.0,
+        "f1": 0.9268292682926829,
+        "support": 19
+      }
+    }
+  },
+  "majority_test": {
+    "confusion_matrix": [
+      [
+        0,
+        11
+      ],
+      [
+        0,
+        19
+      ]
+    ],
+    "accuracy": 0.6333333333333333,
+    "macro_f1": 0.3877551020408163,
+    "per_class": {
+      "0": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 11
+      },
+      "1": {
+        "precision": 0.6333333333333333,
+        "recall": 1.0,
+        "f1": 0.7755102040816326,
+        "support": 19
+      }
+    }
+  },
+  "test_run_ids": [
+    14,
+    25,
+    27,
+    38,
+    47,
+    50,
+    56,
+    59,
+    63,
+    70,
+    89,
+    93,
+    99,
+    101,
+    109,
+    110,
+    117,
+    119,
+    120,
+    124,
+    147,
+    150,
+    151,
+    152,
+    160,
+    163,
+    168,
+    172,
+    191,
+    195
+  ]
+}

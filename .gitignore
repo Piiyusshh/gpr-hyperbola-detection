@@ -3,9 +3,36 @@
 __pycache__/
 *.py[cod]
 
+# Generated datasets and intermediate simulation files.
+data/
+data_lean/
+**/temporary_h5/
+
 # gprMax trace files and generated geometry/output files can grow quickly.
 results/*.h5
 results/*.vtkhdf
 results/*.log
+results/**/*.h5
+results/**/*.vtkhdf
+results/**/*.log
 
+# Local logs and temporary diagnostic backups.
+logs/
+results/figures/pre_plotting_fix_20261024_1729/
+*.tmp
+
+# Python and test/tool caches.
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environment and credentials files.
+.env
+.env.*
+!.env.example
+
+# Local editor and operating-system files.
+.vscode/
+.DS_Store
+Thumbs.db
 
