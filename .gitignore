@@ -1,0 +1,11 @@
+# Local Python environment
+.venv/
+__pycache__/
+*.py[cod]
+
+# gprMax trace files and generated geometry/output files can grow quickly.
+results/*.h5
+results/*.vtkhdf
+results/*.log
+
+

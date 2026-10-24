@@ -1,0 +1,27 @@
+# Exact package versions installed and run for Step 1 on Windows/Python 3.12.
+colorama==0.4.6
+contourpy==1.4.0
+cycler==0.12.1
+Cython==3.3.0
+fonttools==4.67.0
+gprMax==4.0.1
+h5py==3.16.0
+humanize==4.16.0
+Jinja2==3.1.6
+kiwisolver==1.5.1
+MarkupSafe==3.0.4
+matplotlib==3.11.2
+numpy==2.5.4
+numpy-stl==4.1.1
+packaging==26.3
+pillow==13.0.0
+psutil==7.2.2
+pyparsing==3.3.3
+python-dateutil==3.0.0
+python-utils==4.1.4
+scipy==1.18.1
+six==1.17.0
+terminaltables==3.1.10
+tqdm==4.70.1
+typing_extensions==4.16.0
+tzdata==2026.5

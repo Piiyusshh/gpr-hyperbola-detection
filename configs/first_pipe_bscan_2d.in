@@ -1,0 +1,18 @@
+#title: Step 1 - 2D B-scan of one buried ideal-metal pipe
+#domain_mode: TM
+#domain: 0.600 0.360 inf
+#dx_dy_dz: 0.004 0.004 0.004
+#time_window: 4e-9
+
+#material: 6 0.01 1 0 soil
+
+#waveform: ricker 1 9e8 ricker_900MHz
+
+#hertzian_dipole: z 0.052 0.260 inf ricker_900MHz
+#rx: 0.052 0.260 inf
+#src_steps: 0.008 0 0
+#rx_steps: 0.008 0 0
+
+#box: 0 0 0 0.600 0.260 inf soil
+
+#cylinder: 0.300 0.140 0 0.300 0.140 inf 0.032 pec

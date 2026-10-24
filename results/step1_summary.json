@@ -1,0 +1,15 @@
+{
+  "array_shape_time_by_trace": [
+    425,
+    63
+  ],
+  "dt_s": 9.434617346998736e-12,
+  "pipe_top_depth_true_m": 0.088,
+  "apex_trace_index": 31,
+  "apex_position_m": 0.3,
+  "time_zero_reference_s": 1.434061836743808e-09,
+  "picked_echo_recorded_time_s": 2.8775582908346147e-09,
+  "pipe_propagation_time_s": 1.4434964540908068e-09,
+  "estimated_top_depth_m": 0.08833459118601275,
+  "estimated_minus_true_m": 0.00033459118601275595
+}
